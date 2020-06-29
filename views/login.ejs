@@ -1,0 +1,18 @@
+<%-include('top', {user: {isLogined: false}});%>
+<div class="login_form_cont">
+    <form action="/login" method="post">
+        <h1>Enter your login and password</h1>
+        <label class="lbl_title">Login:</label>
+        <input name="user[login]">
+        <% if (message) if(message.indexOf("Login") == 0) { %>
+            <label class="msg_label"><%=message%></label>
+        <%}%>
+        <label class="lbl_title">Password:</label>
+        <input name="user[pass]">
+        <% if (message) if(message.indexOf("Password") == 0) { %>
+        <label class="msg_label"><%=message%></label>
+        <%}%>
+        <input class="sbm_btn" type="submit" value="Log in">
+    </form>
+</div>
+<%- include('bottom') %>

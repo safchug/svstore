@@ -1,0 +1,10 @@
+<div id="menager_menu">
+    <ul>
+        <li><a href="/sellings">Sellings</a> </li>
+        <li><a href="/create_menager">Create Menager</a></li>
+        <li><a href="/approve">Approve salesmans
+                <%if (salesmansCount > 0) { %>
+                    <span class="new_salesmens"><%=salesmansCount%></span></a> </li>
+                <%}%>
+    </ul>
+</div>

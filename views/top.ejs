@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css" >
+</head>
+
+<div id = "menu">
+    <img src="/images/logo.png">
+    <input id="rearching_inp" type="search">
+    <%if(user.isLogined) {%>
+        <a href="/logout">Log out</a>
+        <p><%=user.name + " " + user.surname %></p>
+    <% } else { %>
+            <a id="reg_link" href="/regist">Sighn up</a>
+            <a href="/login">Log in</a>
+    <%} %>
+</div>
+
+<script src="/js/logoClicking.js"></script>

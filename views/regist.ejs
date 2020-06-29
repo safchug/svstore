@@ -1,0 +1,34 @@
+<%-include('top');%>
+<div class="regist_form_cont">
+    <form action="/regist" method="post">
+        <h1>Fullfill registration application</h1>
+        <label>Name</label>
+        <input name="user[name]">
+        <label>Surname</label>
+        <input name="user[surname]">
+        <label>Login:</label>
+        <input name="user[login]">
+        <label id="msg_login_lbl">This login is already taken!</label>
+        <label>Password:</label>
+        <input type="password" name="user[pass]">
+        <label>Confirm password:</label>
+        <input type="password">
+        <label id="pass_confirm_lbl">Passwords are not match</label>
+        <label>Type of using:</label>
+        <select name="user[type]">
+            <option value="User">User</option>
+            <option value="Salesman">Salesman</option>
+        </select>
+        <div class="message_div">
+            <p>Please select "salesman" only if you want to work in our store</p>
+        </div>
+        <label>Phone number</label>
+        <input name="user[phone]">
+        <label id="phone_label_msg"></label>
+        <input class="sbm_btn" type="submit" value="Registr">
+    </form>
+</div>
+
+<script src="/js/registration_validation.js"></script>
+
+<%- include('bottom') %>

@@ -1,0 +1,23 @@
+<%-include('top');%>
+<div id="menager_conteiner">
+    <%-include('menager_menu')%>
+    <div id="new_salesmans_list">
+        <%if (newSalesmansList) for(salesman of newSalesmansList) {%>
+            <div class="salesmens_item">
+                <H2><%=salesman.name + " " + salesman.surname%></H2>
+                <p>Login: <%=salesman.login%></p>
+                <p>Phone number: <%=salesman.phone%></p>
+                <form action="/approvesalesman" method="post">
+                    <input type="hidden" name="user[login]" value="<%=salesman.login%>">
+                    <input type="submit" value="Approve">
+                </form>
+                <form action="/regect" method="post">
+                    <input type="hidden" name="user[login]" value="<%=salesman.login%>">
+                    <input type="submit" value="Reject">
+                </form>
+            </div>
+        <%}%>
+
+    </div>
+</div>
+<%-include('bottom');%>
