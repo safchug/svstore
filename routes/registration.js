@@ -15,7 +15,7 @@ exports.regist = function(req, res, next) {
     }
 
     user.hashPass(pass, ()=> {
-        db.Manager.insertUser(user).then((result) => {
+        db.Menager.insertUser(user).then((result) => {
             res.redirect('/greetings');
         });
     });

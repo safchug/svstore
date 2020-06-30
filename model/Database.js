@@ -11,7 +11,7 @@ module.exports = () => {
 
 module.exports.url = url + "svstore";
 
-module.exports.Manager = {
+module.exports.Menager = {
     insertUser(obj) {
         return db.collection('users').insertOne(obj, { w: 1 });
     },

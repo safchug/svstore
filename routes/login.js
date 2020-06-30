@@ -10,7 +10,7 @@ exports.submit = function(req, res, next){
     var pass = req.body.user.pass;
     var user = null;
 
-    db.Manager.selectUserWithLogin(login).then((result)=>{
+    db.Menager.selectUserWithLogin(login).then((result)=>{
         if (result) {
             User.verifyPass(pass, result.hash,(match)=>{
                 if(match) {

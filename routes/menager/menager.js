@@ -1,5 +1,4 @@
 var db = require('../../model/Database');
-var confirm = require("../../model/confirm");
 
 exports.form = function (req, res, next) {
     Menager.fatchNewSalesmansCountToLocals(res, () => {
@@ -42,7 +41,7 @@ class Menager {
     static render(req, res, view) {
         var user = req.session.user || null;
         if (user) {
-            confirm.confirmMenager(user, (isMenager) => {
+            Menager.confirm(user, (isMenager) => {
                 if (isMenager) {
                     res.render(view);
                 } else {
@@ -55,7 +54,7 @@ class Menager {
     }
 
     static fatchNewSalesmansCountToLocals(res, cb) {
-        db.Manager.selectNewSalesmanes().then((result) => {
+        db.Menager.selectNewSalesmanes().then((result) => {
             res.locals.salesmansCount = result.length || 0;
             res.locals.newSalesmansList = result || null;
             cb();
@@ -63,10 +62,25 @@ class Menager {
     }
 
     static deleteUser(login, cb) {
-        db.Manager.deleteUser(login).then((result)=>{
+        db.Menager.deleteUser(login).then((result)=>{
             cb();
         });
     }
 
+    static confirm(user, cb){
+        if(user != null && user.type == "Manager") {
+            db.Menager.selectUserWithLogin(user.login).then((result)=>{
+                if (result) {
+                    if(user.hash == result.hash) {
+                        cb(true);
+                    } else {
+                        cb(false);
+                    }
+                }
+            });
+        }
+
+
+    }
 }
 
