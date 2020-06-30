@@ -113,7 +113,8 @@ function checkPhoneNumber() {
 }
 
 function isAllFieldsFullfiled() {
-    let inputsList = document.getElementsByTagName("input");
+    let registFormCont = document.getElementsByClassName("regist_form_cont")[0]
+    let inputsList = registFormCont.getElementsByTagName("input");
     for(input of inputsList) {
         if (input.value == "") return false;
     }
