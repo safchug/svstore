@@ -1,6 +1,11 @@
-<%-include('top', {user: {isLogined: false}});%>
+<%-include('top');%>
 <div id="advert">
-    <h1>Now you can use your login and password to log in</h1>
+    <%if (user.type == "Salesman") {%>
+        <h1>Please wait untill our menager approve your application</h1>
+    <%} else {%>
+        <h1>Now you can use your login and password to log in</h1>
+    <%}%>
+        <%=user.type%>>
     <img src="/images/Advertisment.png">
 </div>
 
