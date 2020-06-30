@@ -61,7 +61,7 @@ let msgLoginLbl = document.getElementById("msg_login_lbl");
 
 function chackLogin(){
     msgLoginLbl.style.display = "none";
-    isValid[2] = true;
+    isValid[1] = true;
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status ==200) {
@@ -122,14 +122,14 @@ function isAllFieldsFullfiled() {
 }
 
 form.onsubmit = function validateForm(){
-    if(phoneMsgInput.value == "") {
-        isValid[3] = false;
-        phoneLabelMsg.innerHTML = "Please, enter phone number"
-        phoneLabelMsg.style.display = "inline";
-    } else if (!isAllFieldsFullfiled()) {
+    if (!isAllFieldsFullfiled()) {
         phoneLabelMsg.innerHTML = "Please, enter all fields"
         phoneLabelMsg.style.display = "inline";
         isValid[3] = false;
+    } else if(phoneMsgInput.value == "") {
+        isValid[3] = false;
+        phoneLabelMsg.innerHTML = "Please, enter phone number"
+        phoneLabelMsg.style.display = "inline";
     } else {
         isValid[3] = true;
     }
