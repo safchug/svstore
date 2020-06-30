@@ -42,9 +42,9 @@ app.use(session({
   })
 }));
 
-app.use(initMiddleWare);
-
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(initMiddleWare);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -63,7 +63,6 @@ app.get('/approve', menager.approveForm);
 app.post("/regect", menager.reject);
 //api
 app.post('/api/login', api.chackLogin);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

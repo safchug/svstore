@@ -12,11 +12,19 @@ exports.regist = function(req, res, next) {
 
     if(type == "Salesman") {
         user.isNew = true;
+        res.locals.user = user;
     }
 
     user.hashPass(pass, ()=> {
         db.Menager.insertUser(user).then((result) => {
-            res.redirect('/greetings');
+            let user = result.ops[0];
+
+            if(user.type == "Salesman") {
+                res.redirect('/greetings?who=Salesman');
+            } else {
+                res.redirect('/greetings');
+            }
+
         });
     });
 }
