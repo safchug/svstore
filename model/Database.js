@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
+var dbname = "svstore";
 
 var db;
 
@@ -9,7 +10,7 @@ module.exports = () => {
     });
 }
 
-module.exports.url = url + "svstore";
+module.exports.url = url + dbname;
 
 module.exports.Menager = {
     insertUser(obj) {
@@ -29,7 +30,12 @@ module.exports.Menager = {
     deleteUser(login) {
         let query = {login: login};
         return db.collection('users').deleteOne(query);
-    }
+    },
 
+    updateUserIsNotNew(login) {
+        let query  = {login: login};
+        let newValue = {$set: {isNew: false}};
+        return db.collection('users').updateOne(query, newValue);
+    }
 }
 

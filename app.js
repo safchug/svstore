@@ -15,6 +15,7 @@ var registration = require('./routes/registration');
 var api = require("./routes/api");
 var initMiddleWare = require('./middlewares/init');
 var menager = require('./routes/menager/menager');
+var salesman = require('./routes/salesman/salesman');
 
 var app = express();
 
@@ -57,10 +58,16 @@ app.get('/regist', registration.form);
 app.post('/regist', registration.regist);
 app.get("/greetings", registration.greetings);
 
+//menager
 app.get("/menager", menager.form);
 app.get("/sellings", menager.sellings);
 app.get('/approve', menager.approveForm);
+app.post('/approvesalesman', menager.approveSalesman);
 app.post("/regect", menager.reject);
+
+//salesman
+app.get('/salesman', salesman.form);
+
 //api
 app.post('/api/login', api.chackLogin);
 
