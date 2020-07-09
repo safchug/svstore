@@ -36,6 +36,10 @@ module.exports.Menager = {
         let query  = {login: login};
         let newValue = {$set: {isNew: false}};
         return db.collection('users').updateOne(query, newValue);
+    },
+
+    addGoodsToCollection(collectionName, goods) {
+        return db.collection(collectionName).insertOne(goods);
     }
 }
 

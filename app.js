@@ -3,8 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var fileUpload = require('express-fileupload');
+var bodyParser = require('body-parser');
 
 var db = require("./model/Database");
 
@@ -16,6 +18,7 @@ var api = require("./routes/api");
 var initMiddleWare = require('./middlewares/init');
 var menager = require('./routes/menager/menager');
 var salesman = require('./routes/salesman/salesman');
+var addGoods = require('./routes/salesman/addGoods');
 
 var app = express();
 
@@ -44,6 +47,8 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
+app.use(bodyParser({defer: true}));
 
 app.use(initMiddleWare);
 
@@ -67,6 +72,8 @@ app.post("/regect", menager.reject);
 
 //salesman
 app.get('/salesman', salesman.form);
+app.get('/addgoods', addGoods.form);
+app.post('/addgoods', addGoods.upload);
 
 //api
 app.post('/api/login', api.chackLogin);

@@ -20,8 +20,10 @@ exports.submit = function(req, res, next){
 
                     if(user.type == "Manager"){
                         res.redirect("/menager");
-                    } else if (user.type = "Salesman") {
-                        res.redirect("/selling");
+                    } else if (user.type == "Salesman" && user.isNew != true) {
+                        res.redirect("/salesman");
+                    } else if (user.type == "Salesman" && user.isNew) {
+                        res.render("error", {message: "Please wait untill our menager approve you at this position"});
                     } else {
                         res.redirect("/");
                     }

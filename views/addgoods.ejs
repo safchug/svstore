@@ -1,0 +1,69 @@
+<%-include('top');%>
+<div id="salesman_conteiner">
+    <%-include('salesman_menu');%>
+
+<div id="add_goods_conteiner">
+    <form method="post" action="/addgoods" enctype="multipart/form-data">
+        <div class="line">
+            <label>Tiitle of the product:</label>
+            <input type="text" id="title" name="title">
+            <label id="title_msg"></label>
+        </div>
+        <div  class="line">
+            <label>Price:</label>
+            <input id="price_input" type="text" name="price">
+            <label id="price_lbl"></label>
+        </div>
+        <div class="line">
+        <label>Select section: </label>
+        <select name="section">
+            <option>PC</option>
+            <option>Leptops</option>
+            <option>Cellphones</option>
+            <option>Headphones</option>
+            <option>Tv</option>
+            <option>Routers</option>
+            <option>Other</option>
+        </select>
+        </div>
+        <div>
+        <a id="front_pic_btn" class="pic_button" href="#">Add main picture</a>
+        <a id="pic_btn" class="pic_button" href="#">Add other pictures</a>
+            <label id="picture_alert"></label>
+        </div>
+            <input type="file" id="front_file" accept="image/*" style="display: none">
+        <input type="file" id="file_uploaded" name="filesUploaded" multiple accept="image/*" style="display: none">
+
+        <div class="img_gallery">
+
+        </div>
+        <input id="submit_btn" class="btn" type="submit" value="Add goods">
+        <div class="line">
+            <label>Add some characteristics:</label>
+            <label id="characteristic_alert"></label>
+        </div>
+        <div id="characteristics_data">
+
+        </div>
+    </form>
+
+    <div class="line">
+        <input id="characteristic_title" type="text">
+        <input id="characteristic" type="text">
+        <input class="btn" id="add_characteristic" type="button" value="add characteristic">
+    </div>
+
+    <table id="characteristic_table">
+
+    </table>
+</div>
+</div>
+
+<div id="modal_message">
+    <a href="#">Use as front picture</a>
+</div>
+
+<script src="/js/addingGoodsPictures.js"></script>
+<script src="/js/addingGoodsCharacteristics.js"></script>
+<script src="/js/addingGoodsValidation.js"></script>
+<%-include('bottom');%>
