@@ -42,16 +42,15 @@ exports.upload = function(req, res, next) {
             } else {
                 let goods = req.body;
                 let images = req.files.filesUploaded;
-                let obj = {};
+                let arr = [];
 
                 let i;
                 for(i = 0; i < images.length; i++) {
-                    let key = "image_" + i;
                     let format = figrureOutFileFormat(images[i], i);
-                    obj[key] = './public/goods/' + fileName + format;
+                    arr[i] = '/goods/' + fileName + format;
                 }
 
-                goods.images = obj;
+                goods.images = arr;
 
                 db.Menager.addGoodsToCollection(req.body.section, goods).then((result)=>{
                     res.render('addgoods');
