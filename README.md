@@ -30,4 +30,5 @@ The only difrence between an unregistred user and a registred user is than an un
 ## What is done: 
 - Registration
 - Logining
-- Meneger panel 
+- Menager panel
+- Salesman panel (only adding goods) 

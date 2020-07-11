@@ -17,14 +17,16 @@ h1 {
 }
 
 #menu {
-  top: 2px;
-  left: 0px;
+    top: 2px;
+    left: 0px;
     margin: 0px;
     padding: 0px;
-  width: 100%;
-  height: 50px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 100%;
+    min-width: 950px;
+    height: 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
 #menu img {
     float: left;
 }
@@ -293,3 +295,151 @@ h1 {
     margin: 0px 5px;
 }
 
+
+/* Salesman panel*/
+
+#salesman_conteiner {
+    float: left;
+    width: 100%;
+    min-width: 1300px;
+    height: 95vh;
+}
+
+#salesman_menu {
+    padding: 0px;
+    padding-top: 30px;
+    margin: 3px 2px 0px 0px;
+    height: 100%;
+    width: 250px;
+    float: left;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#salesman_menu ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+#salesman_menu a {
+    margin: 0px;
+    padding: 3px 40px;
+    width: 170px;
+    height: 20px;
+    display: inline-block;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#salesman_menu a:hover {
+    color: white;
+    background: #327da8;;
+}
+
+#add_goods_conteiner {
+    margin: 3px 2px 0px 3px;
+    float: left;
+    width: 900px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.pic_button {
+    float: left;
+    display: block;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+.pic_button:hover {
+    color: white;
+    background-color: #327da8;
+}
+
+.img_gallery {
+    clear: left;
+    margin: 4px;
+    height: 550px;
+    z-index: 1;
+}
+
+.img_gallery .front {
+    float: left;
+    width: 500px;
+    height: 500px;
+}
+
+.img_gallery img {
+    margin: 5px 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 2px solid #327da8;
+    clear: left;
+    width: 100px;
+    height: 100px;
+}
+
+.line {
+    margin: 10px 40px 10px 40px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#add_goods_conteiner div label{
+    margin: 10px 40px 10px 40px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#characteristic_table td {
+    width: 450px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#add_goods_conteiner .btn {
+    width: 200px;
+    height: 30px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#submit_btn {
+    float: right;
+}
+
+#add_goods_conteiner input {
+    height: 20px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#add_goods_conteiner select{
+    height: 30px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#modal_message {
+    position: absolute;
+    display: none;
+    z-index: 2;
+    height: 20px;
+    width: 200px;
+    border-radius: 25px;
+    border: 2px solid #327da8;
+    background: white;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
