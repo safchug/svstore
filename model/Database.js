@@ -29,7 +29,16 @@ module.exports.Menager = {
     deleteUser(login) {
         let query = {login: login};
         return db.collection('users').deleteOne(query);
-    }
+    },
 
+    getCountOfCollection(name){
+        return db.collection(name).count();
+    },
+
+    selectPageDataFromCollection(name, page) {
+        let skipIndex = page * 10;
+        return db.collection(name).find().skip(skipIndex).limit(10).toArray();
+    }
+    
 }
 
