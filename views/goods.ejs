@@ -1,3 +1,18 @@
 <%-include('top');%>
+<div id="goods_conteiner">
+    
+    <%if(goods) {
+    for(item of goods) {%>
+        <div class="goods">
+            <img class="front" src="<%=goods.images.image_0%>">
 
+        </div>
+    <% }
+    }%>
+</div>
 <%-include('bottom');%>
+
+"image_0": "/goods/super1594312705871_0.jpg",
+"image_1": "/goods/super1594312705871_1.jpg",
+"image_2": "/goods/super1594312705871_2.jpg",
+"image_3": "/goods/super1594312705871_3.jpg"
