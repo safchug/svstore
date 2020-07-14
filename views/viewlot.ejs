@@ -1,0 +1,34 @@
+<%-include('top');%>
+
+<div id="lot_conteiner">
+    <%if (lot) {%>
+        <h1><%=lot.title%></h1>
+        <div id="lot_gallery">
+            <div class="lot_pictures">
+                <% for (image of lot.images) { %>
+                <img src="<%=image%>">
+                <% } %>
+            </div>
+            <img class="lot_front_pic" src="<%=lot.images[0]%>">
+        </div>
+    <div class="lot_status">
+        <a href="/addtobasket/<%=lot.title%>">Buy</a>
+        <div class="lot_price">
+            <%=lot.price%>₴
+        </div>
+    </div>
+    <div class="lot_characteristics">
+        <table>
+        <% for(key in lot.characteristics) { %>
+            <tr>
+                <td><%=key%></td>
+                <td><%=lot.characteristics[key]%></td>
+            </tr>
+        <% } %>
+        </table>
+    </div>
+    <%}%>
+</div>
+
+<%-include('bottom');%>
+<script src="/js/switchingPictures.js"></script>

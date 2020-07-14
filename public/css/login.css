@@ -1,0 +1,39 @@
+/* login */
+
+.login_form_cont {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.login_form_cont form {
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.login_form_cont form input {
+    margin: 10px 40px 10px 40px;
+    width: 320px;
+    height: 20px;
+}
+
+.lbl_title {
+    margin: 0px 40px 0px 40px;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+.msg_label {
+    font-family: Candara;
+    margin: 0px 50px 0px 100px;
+    font-size: 20px;
+    color: red;
+}
+
+.login_form_cont form sbm_btn {
+    width: 100px;
+    height: 20px;
+}

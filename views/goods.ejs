@@ -4,15 +4,17 @@
     <%if(goods) {
     for(item of goods) {%>
         <div class="goods">
-            <img class="front" src="<%=goods.images.image_0%>">
-
+            <a class="view_btn" href="<%=url%>/view/<%=item.title%>/">
+            <img class="front" src="<%=item.images[0]%>">
+            <div class="goods_label">
+                <h1><%=item.title%></h1>
+            <div class="goods_price_div"><%=item.price%>₴</div>
+            <a class="buy_button" href="/addtobasket/<%=item.title%>/">Buy</a>
+            </div>
+            </a>
         </div>
+
     <% }
     }%>
 </div>
 <%-include('bottom');%>
-
-"image_0": "/goods/super1594312705871_0.jpg",
-"image_1": "/goods/super1594312705871_1.jpg",
-"image_2": "/goods/super1594312705871_2.jpg",
-"image_3": "/goods/super1594312705871_3.jpg"

@@ -1,0 +1,21 @@
+#new_salesmans_list {
+    float: left;
+}
+
+.salesmens_item {
+    padding: 0px 10px;
+    margin: 10px 20px;
+    width: 500px;
+    height: 130px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.salesmens_item form {
+    color: #8e8d94;
+    display: inline-block;
+    float: right;
+}
+
+.salesmens_item form input{
+    margin: 0px 5px;
+}

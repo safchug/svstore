@@ -1,0 +1,41 @@
+/* Salesman panel*/
+
+#salesman_conteiner {
+    float: left;
+    width: 100%;
+    min-width: 1300px;
+    height: 95vh;
+}
+
+#salesman_menu {
+    padding: 0px;
+    padding-top: 30px;
+    margin: 3px 2px 0px 0px;
+    height: 100%;
+    width: 250px;
+    float: left;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#salesman_menu ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+#salesman_menu a {
+    margin: 0px;
+    padding: 3px 40px;
+    width: 170px;
+    height: 20px;
+    display: inline-block;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+#salesman_menu a:hover {
+    color: white;
+    background: #327da8;;
+}
+

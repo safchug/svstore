@@ -1,3 +1,4 @@
+var url = require('url');
 
 module.exports = function(req, res, next) {
     let type = req.query.who;
@@ -6,5 +7,7 @@ module.exports = function(req, res, next) {
 
     res.locals.user = req.session.user || user;
 
+    res.locals.urlPath = url.parse(req.url).path;
+    console.log("urlPath ========== " + res.locals.urlPath);
     next();
 }

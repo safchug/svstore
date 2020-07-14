@@ -3,7 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/menu.css" >
     <link rel="stylesheet" href="/css/style.css" >
+    <%if(urlPath.length == 1) {
+        //index
+    %>
+        <link rel="stylesheet" href="/css/index.css" >
+    <% } %>
+    <%if (urlPath.indexOf("/login") == 0) { %>
+        <link rel="stylesheet" href="/css/login.css" >
+    <%} else if (urlPath.indexOf('/regist') == 0) { %>
+        <link rel="stylesheet" href="/css/regist.css" >
+    <% } else if (urlPath.indexOf('/greetings') == 0) {%>
+        <link rel="stylesheet" href="/css/greetings.css">
+    <% } else if (urlPath.indexOf('/menager') == 0) { %>
+        <link rel="stylesheet" href="/css/menager.css" >
+    <% } else if (urlPath.indexOf('/sellings') == 0) { %>
+        <link rel="stylesheet" href="/css/menager.css" >
+    <% } else if (urlPath.indexOf('/approve') == 0) { %>
+        <link rel="stylesheet" href="/css/menager.css" >
+        <link rel="stylesheet" href="/css/approve.css" >
+    <% } else if (urlPath.indexOf('/salesman') == 0) { %>
+        <link rel="stylesheet" href="/css/salesman.css" >
+    <% } else if (urlPath.indexOf('/addgoods') == 0) { %>
+        <link rel="stylesheet" href="/css/salesman.css" >
+        <link rel="stylesheet" href="/css//addgoods.css" >
+    <%
+        //products css
+        } else if (urlPath.indexOf('/goods/') == 0 && urlPath.indexOf('/view/') > 0) { %>
+        <link rel="stylesheet" href="/css/goodsview.css" >
+    <% } else if (urlPath.indexOf('/goods') == 0) { %>
+        <link rel="stylesheet" href="/css/goods.css" >
+    <% } %>
+
 </head>
 
 <div id = "menu">

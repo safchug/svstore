@@ -36,9 +36,18 @@ module.exports.Menager = {
         return db.collection(name).count();
     },
 
-    selectPageDataFromCollection(name, page) {
-        let skipIndex = page * 10;
-        return db.collection(name).find().skip(skipIndex).limit(10).toArray();
+    selectPageDataFromCollection(name, count, page, elementsPerPage) {
+        let skipIndex = count - (page * elementsPerPage);
+
+        if(skipIndex < 0) {
+            elementsPerPage += skipIndex;
+
+            console.log("skipIndex: " + skipIndex);
+            skipIndex = 0;
+        }
+
+        console.log("elementsPerPage" + elementsPerPage);
+        return db.collection(name).find().skip(skipIndex).limit(elementsPerPage).toArray();
     },
 
     updateUserIsNotNew(login) {
@@ -49,6 +58,12 @@ module.exports.Menager = {
 
     addGoodsToCollection(collectionName, goods) {
         return db.collection(collectionName).insertOne(goods);
+    },
+
+    selectLotFromCollection(collectionName, lot) {
+        let query = {title: lot};
+        return db.collection(collectionName).findOne(query);
     }
+
 }
 

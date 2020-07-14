@@ -40,7 +40,7 @@ exports.upload = function(req, res, next) {
             if (err) {
                 res.render('error', {message: err.message});
             } else {
-                let goods = req.body;
+                let goods = {};
                 let images = req.files.filesUploaded;
                 let arr = [];
 
@@ -50,6 +50,16 @@ exports.upload = function(req, res, next) {
                     arr[i] = '/goods/' + fileName + format;
                 }
 
+                let characteristics = {};
+                for(key in req.body) {
+                    if (key == "title" || key == "price" || key == "section") {
+                        goods[key] = req.body[key];
+                    } else {
+                        characteristics[key] = req.body[key];
+                    }
+                }
+
+                goods.characteristics = characteristics;
                 goods.images = arr;
 
                 db.Menager.addGoodsToCollection(req.body.section, goods).then((result)=>{

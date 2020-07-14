@@ -1,0 +1,61 @@
+/* goods */
+#goods_conteiner {
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+}
+
+.goods {
+    margin: 10px;
+    float: left;
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.view_btn {
+    width: 400px;
+    height: 500px;
+}
+
+.goods .front {
+    float: left;
+    width: 200px;
+    height: 300px;
+}
+
+.goods_label {
+    float: left;
+    width: 400px;
+}
+
+.goods_label .buy_button {
+    margin-right: 10px;
+    padding:  5px 10px;
+    float: right;
+    display: block;
+    width: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-family: Candara;
+    font-size: 40px;
+    text-align: center;
+    background: #327da8;
+    color: white;
+}
+
+.goods_label .buy_button:hover {
+    background: #054366;
+}
+
+.goods_label .buy_button:hover {
+    color: white;
+    background: #327da8;
+}
+
+.goods_price_div {
+    float: left;
+    font-family: Candara;
+    font-size: 40px;
+    color: black;
+}

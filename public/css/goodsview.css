@@ -1,0 +1,70 @@
+/* lot */
+#lot_conteiner {
+    min-width: 830px;
+}
+
+#lot_gallery {
+    float: left;
+    width: 900px;
+    height: 900px;
+}
+
+#lot_gallery .lot_front_pic{
+    float: left;
+    width: 700px;
+    height: 700px;
+}
+
+.lot_pictures {
+    float: left;
+    width: 110px;
+}
+
+#lot_gallery .lot_pictures img {
+    float: left;
+    width: 100px;
+    width: 100px;
+}
+
+.lot_characteristics {
+    clear: both;
+    width: 500px;
+    height: auto;
+}
+
+.lot_characteristics table td {
+    width: 250px;
+}
+
+.lot_status {
+    float: left;
+    min-width: 500px;
+    width: 30%;
+    height: auto;
+}
+
+.lot_status a {
+    float: right;
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 20px 5px;
+    padding: 2px 10px;
+    font-family: Candara;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    background: #327da8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.lot_status a:hover {
+    background: #054366;
+}
+
+.lot_price {
+    float: left;
+    font-family: Candara;
+    font-size: 80px;
+}

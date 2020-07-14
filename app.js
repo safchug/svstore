@@ -20,6 +20,8 @@ var menager = require('./routes/menager/menager');
 var goods = require("./routes/goods");
 var salesman = require('./routes/salesman/salesman');
 var addGoods = require('./routes/salesman/addGoods');
+var viewLot = require('./routes/viewlot');
+var basket = require('./routes/basket');
 
 
 var app = express();
@@ -74,8 +76,17 @@ app.post("/regect", menager.reject);
 
 
 //goods
-app.get('/pc', goods.firstPage);
-app.get('/pc/:id', goods.nextPage);
+app.get('/goods/pc', goods.firstPage);
+app.get('/goods/pc/:id', goods.nextPage);
+app.get('/goods/pc/view/:id', viewLot.from);
+//cellphones
+app.get('/goods/cellphones', goods.firstPage);
+app.get('/goods/cellphones/:id', goods.nextPage);
+app.get('/goods/cellphones/view/:id', viewLot.from);
+
+
+//addtobasket
+app.get('/addtobasket/:id', basket.add);
 
 //salesman
 app.get('/salesman', salesman.form);

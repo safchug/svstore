@@ -1,0 +1,36 @@
+/* Menager*/
+#menager_conteiner {
+    float: left;
+    width: 100%;
+    min-width: 600px;
+    height: 95vh;
+}
+
+#menager_menu {
+    margin: 3px 2px 0px 0px;
+    height: 95vh;
+    width: 250px;
+    float: left;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#menager_menu ul {
+    list-style-type: none;
+}
+
+#menager_menu a {
+    display: inline-block;
+    text-align: center;
+    font-family: Candara;
+    font-size: 20px;
+    color: #8e8d94;
+}
+
+.new_salesmens {
+    margin-left: 10px;
+    padding: 0px 5px;
+    display: inline-block;
+    background: #baccd6;
+    text-align: center;
+}
+
