@@ -63,6 +63,24 @@ module.exports.Menager = {
     selectLotFromCollection(collectionName, lot) {
         let query = {title: lot};
         return db.collection(collectionName).findOne(query);
+    },
+
+    selectBasketList(arr) {
+        let promisesTask = [];
+
+        console.log("i am in!!!");
+
+        for(item of arr) {
+            let query = {title: item.title};
+            console.log(item.title);
+            console.log(item.section);
+            let task = db.collection(item.section).findOne(query);
+            promisesTask.push(task);
+        }
+
+        let promise = Promise.all(promisesTask);
+
+        return promise;
     }
 
 }

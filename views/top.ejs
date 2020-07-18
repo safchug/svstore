@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/menu.css" >
+    <link rel="stylesheet" href="/css/top.css" >
     <link rel="stylesheet" href="/css/style.css" >
     <%if(urlPath.length == 1) {
         //index
@@ -38,9 +38,13 @@
 
 </head>
 
+<div id = "menu-padding">
+
+</div>
 <div id = "menu">
     <img src="/images/logo.png">
     <input id="rearching_inp" type="search">
+
     <%if(user.isLogined) {%>
         <a href="/logout">Log out</a>
         <p><%=user.name + " " + user.surname %></p>
@@ -48,6 +52,17 @@
             <a id="reg_link" href="/regist">Sighn up</a>
             <a href="/login">Log in</a>
     <%} %>
+    <div id="basket_button">
+        <a href="#">
+            <img src="/images/cart.png">
+            <span>1</span>
+        </a>
+    </div>
+</div>
+<div id="basket_inside">
+
 </div>
 
+
 <script src="/js/logoClicking.js"></script>
+<script src="/js/displayingBasket.js"></script>

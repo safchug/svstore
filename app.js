@@ -85,8 +85,6 @@ app.get('/goods/cellphones/:id', goods.nextPage);
 app.get('/goods/cellphones/view/:id', viewLot.from);
 
 
-//addtobasket
-app.get('/addtobasket/:id', basket.add);
 
 //salesman
 app.get('/salesman', salesman.form);
@@ -96,6 +94,9 @@ app.post('/addgoods', addGoods.upload);
 
 //api
 app.post('/api/login', api.chackLogin);
+app.post('/api/addtobasket', api.addToBasket);
+app.post('/api/getbasketlist/', api.getBasketList);
+app.get('/clearcookies', api.clearCookies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
