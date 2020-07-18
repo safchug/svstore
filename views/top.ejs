@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="/css/top.css" >
     <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="/css/basket.css">
     <%if(urlPath.length == 1) {
         //index
     %>
@@ -59,10 +60,8 @@
         </a>
     </div>
 </div>
-<div id="basket_inside">
 
-</div>
-
+<%-include('basket');%>
 
 <script src="/js/logoClicking.js"></script>
 <script src="/js/displayingBasket.js"></script>

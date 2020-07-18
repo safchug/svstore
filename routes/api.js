@@ -48,7 +48,7 @@ exports.getBasketList = function (req, res, next) {
             if(key.indexOf('store_lot_') != -1) {
                 let obj = {};
                 let cokieNameParts = key.split("|");
-                console.log(cokieNameParts);
+
                 obj.section = cokieNameParts[1];
                 obj.title = req.cookies[key];
 
@@ -57,7 +57,6 @@ exports.getBasketList = function (req, res, next) {
         }
 
         db.Menager.selectBasketList(arr).then((list)=> {
-            console.log(list);
            res.json(list);
         });
     }

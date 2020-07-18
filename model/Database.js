@@ -65,22 +65,16 @@ module.exports.Menager = {
         return db.collection(collectionName).findOne(query);
     },
 
-    selectBasketList(arr) {
-        let promisesTask = [];
-
-        console.log("i am in!!!");
+    async selectBasketList(arr) {
+        let results = [];
 
         for(item of arr) {
             let query = {title: item.title};
-            console.log(item.title);
-            console.log(item.section);
-            let task = db.collection(item.section).findOne(query);
-            promisesTask.push(task);
+            let lot = await db.collection(item.section).findOne(query);
+            results.push(lot);
         }
 
-        let promise = Promise.all(promisesTask);
-
-        return promise;
+        return results;
     }
 
 }

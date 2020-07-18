@@ -1,0 +1,52 @@
+#basket_inside {
+    display: none;
+    position: fixed;
+    top:60px;
+    width: 500px;
+    height: 700px;
+    right: 0px;
+    background: white;
+    border: 1px solid #327da8;
+}
+
+.basket_item {
+    clear: both;
+    width: 500px;
+    height: 90px;
+    border: 1px solid #327da8;
+}
+
+.basket_item img {
+    float: left;
+    width: 70px;
+    height: 70px;
+}
+
+.basket_item_title {
+    float: left;
+    width: 420px;
+    height: 45px;
+    font-family: Candara;
+    font-size: 20px;
+}
+
+.basket_item_status {
+    float: left;
+    width: 420px;
+    height: 20px;
+}
+
+.basket_item_price {
+    float: left;
+    font-family: Candara;
+    font-size: 30px;
+    width: 60px;
+}
+
+.basket_item_status a {
+    float: right;
+    font-family: Candara;
+    font-size: 20px;
+    width: 60px;
+}
+

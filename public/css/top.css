@@ -80,14 +80,3 @@
     width: 30px;
     height: 30px;
 }
-
-#basket_inside {
-    display: none;
-    position: fixed;
-    top:60px;
-    width: 500px;
-    height: 700px;
-    right: 0px;
-    background: white;
-    border: 1px solid #327da8;
-}
