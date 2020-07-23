@@ -21,7 +21,7 @@ It is an online store. the application where you can buy goods.
 
 #### A registred user can:
 - post comments
-- add a good to a can
+- add a good to a basket
 - buy a good 
 
 #### An unregistred user:
@@ -32,3 +32,4 @@ The only difrence between an unregistred user and a registred user is than an un
 - Logining
 - Menager panel
 - Salesman panel (only adding goods) 
+- goods review
