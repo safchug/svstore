@@ -1,5 +1,6 @@
 var User = require('../model/User');
 var db = require('../model/Database');
+var cookiesManipulation = require('../utils/cookiesManipulation');
 
 exports.form = function(req, res, next){
     res.render("login", {message: false});
@@ -24,6 +25,15 @@ exports.submit = function(req, res, next){
                         res.redirect("/salesman");
                     } else if (user.type == "Salesman" && user.isNew) {
                         res.render("error", {message: "Please wait untill our menager approve you at this position"});
+                    } else if(user.type == "User") {
+                        let basketList = cookiesManipulation.getItemsList(req);
+                        if(basketList != 0) {
+                            db.Menager.insertBasketListForUser(user.login, basketList).then((result)=>{
+                                cookiesManipulation.clearCookies(req, res);
+                            });
+                        } else {
+                            res.redirect("/");
+                        }
                     } else {
                         res.redirect("/");
                     }

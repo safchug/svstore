@@ -16,12 +16,14 @@ var login = require('./routes/login');
 var registration = require('./routes/registration');
 var api = require("./routes/api");
 var initMiddleWare = require('./middlewares/init');
+var initBaketMiddleware = require('./middlewares/initBasket');
 var menager = require('./routes/menager/menager');
 var goods = require("./routes/goods");
 var salesman = require('./routes/salesman/salesman');
 var addGoods = require('./routes/salesman/addGoods');
 var viewLot = require('./routes/viewlot');
 var basket = require('./routes/basket');
+var cookiesManipulation = require('./utils/cookiesManipulation');
 
 
 var app = express();
@@ -55,6 +57,7 @@ app.use(fileUpload());
 app.use(bodyParser({defer: true}));
 
 app.use(initMiddleWare);
+app.use(initBaketMiddleware);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -96,7 +99,9 @@ app.post('/addgoods', addGoods.upload);
 app.post('/api/login', api.chackLogin);
 app.post('/api/addtobasket', api.addToBasket);
 app.post('/api/getbasketlist/', api.getBasketList);
-app.get('/clearcookies', api.clearCookies);
+app.post('/api/removebasketitem', api.removeBasketItem);
+
+app.get('/clearcookies', cookiesManipulation.clearCookies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

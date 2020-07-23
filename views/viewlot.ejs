@@ -12,7 +12,7 @@
             <img class="lot_front_pic" src="<%=lot.images[0]%>">
         </div>
     <div class="lot_status">
-        <a href="/addtobasket/<%=lot.title%>">Buy</a>
+        <a class="buy_button" lot="<%=lot.title%>" href="<%=url%>">Buy</a>
         <div class="lot_price">
             <%=lot.price%>₴
         </div>
@@ -32,3 +32,4 @@
 
 <%-include('bottom');%>
 <script src="/js/switchingPictures.js"></script>
+<script src="/js/basket/goodsaddingTobasket.js"></script>

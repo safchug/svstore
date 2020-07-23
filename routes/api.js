@@ -1,5 +1,6 @@
 var db = require("../model/Database");
 var findoutSection = require('../utils/findOutSection');
+var cookiesManipulation = require('../utils/cookiesManipulation');
 
 exports.chackLogin = function(req, res, next) {
 
@@ -12,73 +13,57 @@ exports.chackLogin = function(req, res, next) {
 }
 
 exports.addToBasket = function(req, res, next) {
-    let lotsCount = 0;
     let lot = req.body.lot;
     let section = findoutSection(req.body.url);
+    let lotsCount = 0;
+    let user = res.locals.user;
+    console.log("user: " + user);
 
-    for(key in req.cookies) {
-        if(key.indexOf('store_lot_') != -1) {
-            lotsCount++;
-            console.log("++++++++AJAX+++++++++++++");
-            console.log(req.cookies[key]);
-        }
-    }
-
-    if(lotsCount == 0) {
-        res.cookie("store_lot_1" + "|" + section, lot, { maxAge: 1000 * 60 * 60 * 24 * 7 * 2, httpOnly: true });
+    if(user.isLogined) {
+        let item = {login: user.login, section: section, title: lot};
+        db.Menager.insertBasketItem(item).then((result)=> {
+            db.Menager.getBasketSizeofUser(user.login).then((count)=> {
+                console.log("add to basket get count: " + count);
+                res.json({count: count});
+            });
+        });
     } else {
-        lotsCount++;
-        let cookieName = "store_lot_" + lotsCount + "|" + section;
-
-        res.cookie(cookieName, lot, { maxAge: 1000 * 60 * 60 * 24 * 7 * 2, httpOnly: true });
+        lotsCount = cookiesManipulation.addBasketItem(req, res);
+        res.json({count: lotsCount});
     }
 
-    res.json({count: lotsCount});
 }
 
 exports.getBasketList = function (req, res, next) {
     let user = res.locals.user;
 
     console.log("getBasketList");
-    if(!user.isLogined) {
-        let arr = [];
 
-        console.log("!user.isLogined");
-        for(key in req.cookies) {
-            if(key.indexOf('store_lot_') != -1) {
-                let obj = {};
-                let cokieNameParts = key.split("|");
-
-                obj.section = cokieNameParts[1];
-                obj.title = req.cookies[key];
-
-                arr.push(obj);
-            }
-        }
+    if(user.isLogined) {
+        db.Menager.selectBasketListOfUser(user.login).then((list)=> {
+            res.json(list);
+        });
+    } else {
+        let arr = cookiesManipulation.getItemsList(req);
 
         db.Menager.selectBasketList(arr).then((list)=> {
-           res.json(list);
+            console.log(list);
+            res.json(list);
         });
     }
+
 }
 
-exports.clearCookies = function(req, res, next) {
-    for(key in req.cookies) {
-        if(key.indexOf('store_lot_') != -1) {
-            console.log("I was here!");
-            res.clearCookie(key);
-        }
+exports.removeBasketItem = function (req, res, next) {
+    let user = req.session.user || null;
+    let lot = req.body.lot;
+
+    if (user) {
+        db.Menager.deleteBasketItem(user.login, lot).then((result)=>{
+            res.json({status: 'OK'});
+        });
+    } else  {
+        cookiesManipulation.deleteCoockie(req, res, lot);
+        res.json({status: 'OK'});
     }
-
-    let arr = [];
-
-    for(key in req.cookies) {
-        if(key.indexOf('store_lot_') != -1) {
-            arr.push(req.cookies[key]);
-        }
-    }
-
-    console.log(arr);
-
-    res.end('done');
 }

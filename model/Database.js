@@ -75,7 +75,68 @@ module.exports.Menager = {
         }
 
         return results;
-    }
+    },
 
+    async selectBasketListOfUser(login) {
+        let query = {login: login};
+        let arr = await db.collection('basket').find(query).toArray();
+        let results = [];
+
+        for(item of arr) {
+            let query = {title: item.title};
+            let lot = await db.collection(item.section).findOne(query);
+            results.push(lot);
+        }
+
+        return results;
+    },
+
+    getBasketSizeofUser(login) {
+        let query = {login: login};
+
+        return db.collection('basket').find(query).count();
+    },
+
+    insertBasketItem(item) {
+        return db.collection('basket').insertOne(item);
+    },
+
+    async insertBasketListForUser(login, lotsFromCookies) {
+        let query = {login: login};
+        let addedLots = await db.collection('basket').find(query).toArray();
+
+        let selectedLots = [];
+        let i, j;
+        let addedLotLength = addedLots.length;
+        let lotsFromCookiesLength = lotsFromCookies.length;
+
+        if (addedLotLength != 0) {
+            for (i = 0; i < lotsFromCookiesLength; i++) {
+                let isAdded = false;
+                for (j = 0; j < addedLotLength; j++) {
+                    if (lotsFromCookies[i] == addedLots[j]) {
+                        isAdded = true;
+                    }
+                }
+                if(!isAdded) {
+                    let obj = lotsFromCookies[i];
+                    obj.login = login;
+                    selectedLots.push(obj);
+                }
+            }
+        }
+
+        let result = (selectedLots.length > 0 )?
+            db.collection('basket').insertMany(selectedLots)
+            : 0;
+
+        return result;
+    },
+
+    deleteBasketItem(login, title) {
+        let query = {login: login, title: title};
+
+        return db.collection('basket').deleteOne(query);
+    }
 }
 

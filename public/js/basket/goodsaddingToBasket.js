@@ -9,6 +9,9 @@ for (button of buybButtons) {
 function handleBuyButtonClick(e) {
 
     e.preventDefault();
+
+    let state = e.target.innerHTML;
+    if(state == 'Buy'){
     let lot = e.target.getAttribute('lot');
     let url = e.target.getAttribute('href');
 
@@ -20,10 +23,13 @@ function handleBuyButtonClick(e) {
             if(response.count > 0) {
                 countSpan.innerHTML = response.count;
             }
+            e.target.style.fontSize = '30px';
+            e.target.innerHTML = 'in basket';
         }
     };
 
     xHttpReq.open('POST', '/api/addtobasket/', true);
     xHttpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xHttpReq.send('lot=' + lot + '&url=' + url);
+    }
 }

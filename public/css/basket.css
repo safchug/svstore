@@ -1,12 +1,34 @@
-#basket_inside {
+#basket_outside {
+    width: 500px;
+    height: 700px;
     display: none;
     position: fixed;
     top:60px;
-    width: 500px;
-    height: 700px;
     right: 0px;
     background: white;
     border: 1px solid #327da8;
+}
+
+#basket_outside #order_button {
+    display: block;
+    margin: 25px 100px;
+    width: 300px;
+    height: 50px;
+    background-color: #327da8;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Candara;
+    font-size: 45px;
+    box-sizing: border-box;
+}
+
+#basket_inside {
+    width: 500px;
+    height: 600px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .basket_item {

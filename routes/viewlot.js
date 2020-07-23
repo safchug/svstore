@@ -8,7 +8,7 @@ exports.from = function(req, res, next) {
 
     db.Menager.selectLotFromCollection(collectionName, lot).then((lot)=> {
         res.locals.lot = lot;
-        res.render('viewlot');
+        res.render('viewlot', {url: req.url});
     });
 
 }
