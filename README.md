@@ -33,3 +33,4 @@ The only difrence between an unregistred user and a registred user is than an un
 - Menager panel
 - Salesman panel (only adding goods) 
 - goods review
+- basket
