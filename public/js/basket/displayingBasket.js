@@ -28,11 +28,14 @@ let basketInside = document.getElementById('basket_inside');
 function formBasket(list) {
     basketOutside.style.display = "block";
 
+    let totalPriceDiv = basketOutside.getElementsByClassName('total_price')[0];
+
     let divItem = basketInside.getElementsByClassName('basket_item')[0];
     let cloneDivItem = divItem.cloneNode(true);
     basketInside.innerHTML = "";
 
     let i;
+    let totalPrice = 0;
     for(i = 0; i < list.length; i++) {
         cloneDivItem = cloneDivItem.cloneNode(true);
         basketInside.appendChild(cloneDivItem);
@@ -49,7 +52,10 @@ function formBasket(list) {
         titlePriceDiv.innerHTML = list[i].price;
         deleteBtn.addEventListener('click', handleDeleteItem);
 
+        totalPrice += Number.parseInt(list[i].price);
     }
+
+    totalPriceDiv.innerHTML = totalPrice + '₴';
 }
 
 

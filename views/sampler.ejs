@@ -1,0 +1,32 @@
+<%-include('top');%>
+<form method="post" action="/addlist">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <label>Select section:</label>
+    <select name="section">
+        <option>PC</option>
+        <option>Leptops</option>
+        <option>Cellphones</option>
+        <option>Headphones</option>
+        <option>Tv</option>
+        <option>Routers</option>
+        <option>Other</option>
+    </select>
+    <br>
+    <label>Tiitle of the product:</label>
+    <input type="text" id="title" name="title">
+    <br>
+    <label>Price:</label>
+    <input id="price_input" type="text" name="price">
+    <br>
+    <label>Insert image name</label>
+    <input name="image">
+    <input type="submit">
+</form>
+
+<%-include('bottom');%>

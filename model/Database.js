@@ -137,6 +137,10 @@ module.exports.Menager = {
         let query = {login: login, title: title};
 
         return db.collection('basket').deleteOne(query);
+    },
+
+    insertSamplersList(section, list) {
+        return db.collection(section).insertMany(list);
     }
 }
 

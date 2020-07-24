@@ -19,6 +19,13 @@
 
     <% }
     }%>
+    <%if(pagesCount > 1) {%>
+        <div id="pages_nav">
+        <%for(let i = 0; i <= pagesCount; i++) {%>
+            <a href="<%=url%>/<%=i + 1%>"><%=i + 1%></a>
+    <% } %>
+        </div>
+    <% } %>
 </div>
 <%-include('bottom');%>
 <script src="/js/basket/goodsaddingTobasket.js"></script>

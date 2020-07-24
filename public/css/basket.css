@@ -1,34 +1,22 @@
 #basket_outside {
     width: 500px;
-    height: 700px;
+    height: 750px;
     display: none;
     position: fixed;
     top:60px;
     right: 0px;
-    background: white;
+    background-color: #b3c1c9;
     border: 1px solid #327da8;
-}
-
-#basket_outside #order_button {
-    display: block;
-    margin: 25px 100px;
-    width: 300px;
-    height: 50px;
-    background-color: #327da8;
-    color: white;
-    text-align: center;
-    border-radius: 8px;
-    font-family: Candara;
-    font-size: 45px;
-    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 #basket_inside {
     width: 500px;
     height: 600px;
-
+    background-color: white;
     overflow-x: hidden;
     overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .basket_item {
@@ -72,3 +60,40 @@
     width: 60px;
 }
 
+#basket_outside #order_button {
+    clear: both;
+    display: block;
+    margin: 50px 100px;
+    width: 300px;
+    height: 50px;
+    background-color: #327da8;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Candara;
+    font-size: 45px;
+    box-sizing: border-box;
+}
+
+#basket_outside #order_button:hover {
+    background: #054366;
+    color: white;
+}
+
+.total_price {
+    padding: 0px 50px 0px 0px;
+    float: right;
+    font-family: Candara;
+    font-size: 50px;
+    width: 150px;
+}
+
+#basket_outside > p {
+    margin: 0px 0px 25px 0px;
+    padding: 15px 0px 0px 0px;
+    float: right;
+    display: block;
+    font-family: Candara;
+    font-size: 30px;
+    color: #8e8d94;
+}

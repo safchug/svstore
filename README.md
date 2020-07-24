@@ -34,3 +34,9 @@ The only difrence between an unregistred user and a registred user is than an un
 - Salesman panel (only adding goods) 
 - goods review
 - basket
+
+# Backups
+If you want to look at results you can restore database from backups that are uploaded to
+https://github.com/safchug/svstoredbbackups 
+
+To restore backups use comand $>mongorestore /db:svstore /dir:<dowloadded dir>

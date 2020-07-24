@@ -24,7 +24,7 @@ var addGoods = require('./routes/salesman/addGoods');
 var viewLot = require('./routes/viewlot');
 var basket = require('./routes/basket');
 var cookiesManipulation = require('./utils/cookiesManipulation');
-
+var sampler = require('./routes/addingSamplersInDb');
 
 var app = express();
 
@@ -86,8 +86,22 @@ app.get('/goods/pc/view/:id', viewLot.from);
 app.get('/goods/cellphones', goods.firstPage);
 app.get('/goods/cellphones/:id', goods.nextPage);
 app.get('/goods/cellphones/view/:id', viewLot.from);
-
-
+//leptops
+app.get('/goods/leptops', goods.firstPage);
+app.get('/goods/leptops/:id', goods.nextPage);
+app.get('/goods/leptops/view/:id', viewLot.from);
+//headphones
+app.get('/goods/headphones', goods.firstPage);
+app.get('/goods/headphones/:id', goods.nextPage);
+app.get('/goods/headphones/view/:id', viewLot.from);
+//Tv
+app.get('/goods/tv', goods.firstPage);
+app.get('/goods/tv/:id', goods.nextPage);
+app.get('/goods/tv/view/:id', viewLot.from);
+//Tv
+app.get('/goods/routers', goods.firstPage);
+app.get('/goods/routers/:id', goods.nextPage);
+app.get('/goods/routers/view/:id', viewLot.from);
 
 //salesman
 app.get('/salesman', salesman.form);
@@ -102,6 +116,8 @@ app.post('/api/getbasketlist/', api.getBasketList);
 app.post('/api/removebasketitem', api.removeBasketItem);
 
 app.get('/clearcookies', cookiesManipulation.clearCookies);
+app.get('/addsamplers', sampler.form);
+app.post('/addlist', sampler.addSamplerListToDb);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

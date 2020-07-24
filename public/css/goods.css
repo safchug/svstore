@@ -9,7 +9,7 @@
     margin: 10px;
     float: left;
     width: 400px;
-    height: 500px;
+    height: 540px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
@@ -19,8 +19,10 @@
 }
 
 .goods .front {
-    float: left;
-    width: 200px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: auto;
     height: 300px;
 }
 
@@ -60,4 +62,19 @@
     font-family: Candara;
     font-size: 40px;
     color: black;
+}
+
+#pages_nav {
+    width: 600px;
+    margin: auto;
+}
+
+#pages_nav > a {
+    display: inline-block;
+    border: 1px solid #327da8;
+    width: 35px;
+    padding: 3px;
+    font-family: Candara;
+    font-size: 40px;
+    text-align: center;
 }

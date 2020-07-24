@@ -36,9 +36,7 @@ exports.addToBasket = function(req, res, next) {
 
 exports.getBasketList = function (req, res, next) {
     let user = res.locals.user;
-
-    console.log("getBasketList");
-
+    
     if(user.isLogined) {
         db.Menager.selectBasketListOfUser(user.login).then((list)=> {
             res.json(list);
@@ -47,7 +45,6 @@ exports.getBasketList = function (req, res, next) {
         let arr = cookiesManipulation.getItemsList(req);
 
         db.Menager.selectBasketList(arr).then((list)=> {
-            console.log(list);
             res.json(list);
         });
     }
