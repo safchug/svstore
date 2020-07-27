@@ -88,5 +88,4 @@ exports.clearCookies = function(req, res, next) {
 
     console.log(arr);
 
-    res.redirect('/');
 }

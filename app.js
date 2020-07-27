@@ -25,6 +25,7 @@ var viewLot = require('./routes/viewlot');
 var basket = require('./routes/basket');
 var cookiesManipulation = require('./utils/cookiesManipulation');
 var sampler = require('./routes/addingSamplersInDb');
+var order = require('./routes/order');
 
 var app = express();
 
@@ -102,6 +103,9 @@ app.get('/goods/tv/view/:id', viewLot.from);
 app.get('/goods/routers', goods.firstPage);
 app.get('/goods/routers/:id', goods.nextPage);
 app.get('/goods/routers/view/:id', viewLot.from);
+
+app.get('/order', order.form);
+app.post('/order', order.makeOrder)
 
 //salesman
 app.get('/salesman', salesman.form);

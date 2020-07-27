@@ -139,8 +139,18 @@ module.exports.Menager = {
         return db.collection('basket').deleteOne(query);
     },
 
+    deleteUserBasketDocs(login){
+        let query = {login: login};
+        return db.collection('basket').deleteMany(query);
+    },
+
     insertSamplersList(section, list) {
         return db.collection(section).insertMany(list);
+    },
+
+    insertOrder(order) {
+        return db.collection('orders').insertOne(order);
     }
+
 }
 

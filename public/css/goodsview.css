@@ -18,6 +18,9 @@
 .lot_pictures {
     float: left;
     width: 110px;
+    height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #lot_gallery .lot_pictures img {

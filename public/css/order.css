@@ -1,0 +1,97 @@
+#order_list_conteiner{
+    width: 1000px;
+    height: auto;
+}
+
+table {
+    margin: auto;
+    width: 800px;
+    box-sizing: border-box;
+}
+
+tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+#order_top_td {
+    width: 50px;
+    height: 25px;
+}
+
+td {
+    padding-left: 15px;
+    width: 50px;
+    height: 200px;
+}
+
+td.order_item_img {
+    height: 200px;
+    width: 200px;
+}
+
+td.order_item_img img {
+    height: 200px;
+    width: auto;
+}
+
+td.order_item_title_conteiner {
+    width: 650px;
+}
+
+td.order_item_title_conteiner > div {
+    font-size: 50px;
+    font-family: Candara;
+    color: #8e8d94;
+}
+
+form {
+    margin: auto;
+    width: 420px;
+}
+
+form[name="card_form"] {
+    box-sizing: border-box;
+    padding: 0px 0px 0px 30px;
+    background-image: url("/images/credit_card.jpg");
+    background-repeat: no-repeat;
+    background-position:  -90px -80px;
+    background-size: 600px;
+}
+
+form[name="post_office_form"] {
+    display: none;
+}
+
+form label {
+    padding: 10px 0px 0px 0px;
+    display: block;
+    font-size: 30px;
+    font-family: Candara;
+    color: #8e8d94;
+}
+
+input.expire_date {
+    width: 20px;
+}
+
+input[name="cvv"] {
+    width: 30px;
+}
+
+input {
+    width: 350px;
+}
+
+.adress_label {
+    margin-top: 40px;
+}
+
+input[type="submit"] {
+    font-size: 30px;
+    font-family: Candara;
+    color: #8e8d94;
+    margin: 20px 0px;
+    padding: 5px 5px;
+    border-radius: 5px;
+}

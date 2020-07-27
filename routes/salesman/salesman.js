@@ -4,6 +4,6 @@ exports.form = function(req, res, next) {
         res.locals.user = user;
         res.render("salesman");
     } else {
-        res.render("error", {message: "Access denied!!!"});
+        res.render("info", {message: "Access denied!!!"});
     }
 }

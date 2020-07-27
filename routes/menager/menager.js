@@ -55,11 +55,11 @@ class Menager {
                 if (isMenager) {
                     res.render(view);
                 } else {
-                    res.render("error", {message: "Access denied!!!"});
+                    res.render("info", {message: "Access denied!!!"});
                 }
             });
         } else {
-            res.render("error", {message: "Access denied!!!"});
+            res.render("info", {message: "Access denied!!!"});
         }
     }
 

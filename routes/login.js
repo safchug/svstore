@@ -30,6 +30,7 @@ exports.submit = function(req, res, next){
                         if(basketList != 0) {
                             db.Menager.insertBasketListForUser(user.login, basketList).then((result)=>{
                                 cookiesManipulation.clearCookies(req, res);
+                                res.redirect('/');
                             });
                         } else {
                             res.redirect("/");

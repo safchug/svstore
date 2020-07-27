@@ -30,7 +30,7 @@ function formBasket(list) {
 
     let totalPriceDiv = basketOutside.getElementsByClassName('total_price')[0];
 
-    let divItem = basketInside.getElementsByClassName('basket_item')[0];
+    let divItem = basketOutside.getElementsByClassName('basket_item')[0];
     let cloneDivItem = divItem.cloneNode(true);
     basketInside.innerHTML = "";
 
@@ -86,9 +86,16 @@ function handleDeleteItem(e) {
 }
 
 function checkAndChangeButtonState(lot) {
-    let isPathInGoods = findOutIfPathInGoods();
+    let pathname = window.location.pathname;
 
-    if(isPathInGoods) {
+    if(pathname.indexOf('goods') != -1 && pathname.indexOf('view') != -1) {
+        let title = document.querySelector('#lot_conteiner > h1').innerHTML;
+        let button = document.getElementsByClassName('buy_button')[0];
+        if(title == lot) {
+            button.style.fontSize = '40px';
+            button.innerHTML = 'Buy';
+        }
+    } else if (pathname.indexOf('goods') != -1) {
         let goodsDivs = document.getElementsByClassName('goods_label');
         let buttons = document.getElementsByClassName('buy_button');
 
@@ -102,28 +109,6 @@ function checkAndChangeButtonState(lot) {
     }
 }
 
-function findOutIfPathInGoods() {
-    let pathname = window.location.pathname;
-    let isPathInGoods = false;
-
-    if(pathname.indexOf("/pc") != -1) {
-        isPathInGoods = true;
-    } else if(pathname.indexOf("/leptops") != -1) {
-        isPathInGoods = true;
-    } else if(pathname.indexOf("/cellphones") != -1) {
-        isPathInGoods = true;
-    } else if(pathname.indexOf("/headphones") != -1) {
-        isPathInGoods = true;
-    } else if(pathname.indexOf("/tv") != -1) {
-        isPathInGoods = true;
-    } else if(pathname.indexOf("/routers") != -1) {
-        isPathInGoods = true;
-    } else if(pathname.indexOf("/other") != -1) {
-        isPathInGoods = true;
-    }
-
-    return isPathInGoods;
-}
 
 document.addEventListener('click', function (e) {
     let isClickedInside = basketOutside.contains(e.target);

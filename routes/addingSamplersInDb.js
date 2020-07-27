@@ -32,7 +32,7 @@ exports.addSamplerListToDb = function (req, res) {
     }
 
     db.Menager.insertSamplersList(section, arr).then((result)=>{
-        res.render('error', {message: "List added successfully!!!"})
+        res.render('info', {message: "List added successfully!!!"})
     });
 
 }

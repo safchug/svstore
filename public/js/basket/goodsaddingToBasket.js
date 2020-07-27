@@ -2,8 +2,8 @@ let buybButtons = document.getElementsByClassName('buy_button');
 let basketButtonDiv = document.getElementById('basket_button');
 let countSpan = basketButtonDiv.getElementsByTagName('span')[0];
 
-for (button of buybButtons) {
-    button.addEventListener('click', handleBuyButtonClick);
+for (buyButton of buybButtons) {
+    buyButton.addEventListener('click', handleBuyButtonClick);
 }
 
 function handleBuyButtonClick(e) {

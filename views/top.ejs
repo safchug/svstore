@@ -5,7 +5,10 @@
     <title>Title</title>
     <link rel="stylesheet" href="/css/top.css" >
     <link rel="stylesheet" href="/css/style.css" >
-    <link rel="stylesheet" href="/css/basket.css">
+    <% if (!user.isLogined || (user.isLogined && user.type == "User") ) {%>
+        <link rel="stylesheet" href="/css/basket.css">
+    <%}%>
+
     <%if(urlPath.length == 1) {
         //index
     %>
@@ -35,7 +38,10 @@
         <link rel="stylesheet" href="/css/goodsview.css" >
     <% } else if (urlPath.indexOf('/goods') == 0) { %>
         <link rel="stylesheet" href="/css/goods.css" >
-    <% } %>
+    <% } else if (urlPath.indexOf('/order') == 0) {%>
+        <link rel="stylesheet" href="/css/order.css">
+    <%}%>
+
 
 </head>
 
@@ -53,15 +59,21 @@
             <a id="reg_link" href="/regist">Sighn up</a>
             <a href="/login">Log in</a>
     <%} %>
+
+    <% if (!user.isLogined || (user.isLogined && user.type == "User") ) {%>
     <div id="basket_button">
         <a href="#">
             <img src="/images/cart.png">
             <span><%=basketSize%></span>
         </a>
     </div>
+
+    <%}%>
 </div>
 
 <%-include('basket');%>
 
 <script src="/js/logoClicking.js"></script>
-<script src="/js/basket/displayingBasket.js"></script>
+<% if (!user.isLogined || (user.isLogined && user.type == "User") ) {%>
+    <script src="/js/basket/displayingBasket.js"></script>
+<%}%>

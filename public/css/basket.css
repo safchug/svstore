@@ -5,9 +5,12 @@
     position: fixed;
     top:60px;
     right: 0px;
-    background-color: #b3c1c9;
-    border: 1px solid #327da8;
+    background-color: #d8e4eb;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#basket_outside > .basket_item {
+    display: none;
 }
 
 #basket_inside {
@@ -20,16 +23,17 @@
 }
 
 .basket_item {
+    margin: 5px;
     clear: both;
     width: 500px;
     height: 90px;
-    border: 1px solid #327da8;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .basket_item img {
     float: left;
     width: 70px;
-    height: 70px;
+    height: auto;
 }
 
 .basket_item_title {

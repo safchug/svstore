@@ -1,0 +1,77 @@
+<%-include('top');%>
+<div id="order_list_conteiner">
+    <table>
+        <tr>
+            <td id="order_top_td"><input id="order_check_all" type="checkbox" checked></td>
+        </tr>
+    <%  let totalPrice = 0;
+    for(item of orderList) {
+        totalPrice += Number.parseInt(item.price);
+    %>
+        <tr class="order_item">
+            <td><input type="checkbox" checked></td>
+            <td  class="order_item_img"><img src="<%=item.images[0]%>"></td>
+            <td class="order_item_title_conteiner">
+                <h1><%=item.title%></h1>
+                <div class="order_item_price"><%=item.price%>₴</div>
+            </td>
+
+        </tr>
+    <% } %>
+    </table>
+    <div>
+        <div id="total_price_conteiner"><%=totalPrice%>₴</div>
+        <label>Select payment method:</label>
+        <select name="payment_method">
+            <option>Debit card</option>
+            <option>Post office</option>
+        </select>
+        <form name="card_form" method="post" action="/order">
+            <input type="hidden" name="order[list]">
+            <input type="hidden" name="total_price">
+            <input type="hidden" name="payment" value="card">
+            <label>Serial number:</label>
+            <input name="serial" type="text">
+            <label>Expire date:</label>
+            <input class="expire_date" name="expire_month" type="text">/
+            <input class="expire_date" name="expire_year" type="text">
+            <label>cvv:</label>
+            <input name="cvv" type="text">
+            <label>Full name:</label>
+            <input name="name" type="text">
+            <label>Cellphone number:</label>
+            <input name="number" type="text">
+            <label id="adress_label">Adress:</label>
+            <label>Region:</label>
+            <input name="region" type="text">
+            <label>District:</label>
+            <input name="district" type="text">
+            <label>City:</label>
+            <input name="city" type="text">
+            <label>Zip-code:</label>
+            <input name="zip_code" type="text">
+            <input type="submit" value="Make order">
+        </form>
+        <form name = "post_office_form" method="post" action="/order">
+            <input type="hidden" name="order[list]">
+            <input type="hidden" name="total_price">
+            <input type="hidden" name="payment" value="post_office">
+            <label>Full name:</label>
+            <input name="name" type="text">
+            <label>cell phone number:</label>
+            <input name="number" type="text">
+            <label id="adress_label">Adress:</label>
+            <label>Region:</label>
+            <input name="region" type="text">
+            <label>District:</label>
+            <input name="district" type="text">
+            <label>City:</label>
+            <input name="city" type="text">
+            <label>Zip-code:</label>
+            <input name="zip_code" type="text">
+            <input type="submit" value="Make order">
+        </form>
+    </div>
+</div>
+<%-include('bottom');%>
+<script src="/js/order/orderManipulation.js"></script>
