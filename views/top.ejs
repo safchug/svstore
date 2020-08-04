@@ -27,6 +27,8 @@
     <% } else if (urlPath.indexOf('/approve') == 0) { %>
         <link rel="stylesheet" href="/css/menager.css" >
         <link rel="stylesheet" href="/css/approve.css" >
+    <% } else if (urlPath.indexOf('/regect') == 0) { %>
+        <link rel="stylesheet" href="/css/menager.css" >
     <% } else if (urlPath.indexOf('/salesman') == 0) { %>
         <link rel="stylesheet" href="/css/salesman.css" >
     <% } else if (urlPath.indexOf('/addgoods') == 0) { %>
@@ -68,10 +70,12 @@
         </a>
     </div>
 
+    <%-include('basket');%>
+
     <%}%>
 </div>
 
-<%-include('basket');%>
+
 
 <script src="/js/logoClicking.js"></script>
 <% if (!user.isLogined || (user.isLogined && user.type == "User") ) {%>

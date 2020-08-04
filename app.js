@@ -26,6 +26,7 @@ var basket = require('./routes/basket');
 var cookiesManipulation = require('./utils/cookiesManipulation');
 var sampler = require('./routes/addingSamplersInDb');
 var order = require('./routes/order');
+var reactRoute = require('./routes/react');
 
 var app = express();
 
@@ -122,6 +123,7 @@ app.post('/api/removebasketitem', api.removeBasketItem);
 app.get('/clearcookies', cookiesManipulation.clearCookies);
 app.get('/addsamplers', sampler.form);
 app.post('/addlist', sampler.addSamplerListToDb);
+app.get('/react', reactRoute.form);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
